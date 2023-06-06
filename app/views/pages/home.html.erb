@@ -1,29 +1,36 @@
-
-# <h1>Pages#home</h1>
-# <p>Find me in app/views/pages/home.html.erb</p>
+<% if user_signed_in? %>
 <div class="jumbotran jumbotran-home">
     <div class="container">
-    <h1>Welcome to my website!</h1>
-    <p></p>
-    <%= link_to "Learn more >> " ,"#", class:" btn btn-primary btn-lg" %>
+        <h1> Welcome back!</h1>
     </div>
 </div>
-<div class="container">
-<div class="row">
-<div class="col-md-4">
-<h1> Heading</h2>
-<p>Loreum epsun</p>
-<p><%= link_to "View details" , "#", class: "btn btn-secondary" %></p>
-</div>
-<div class="col-md-4">
-<h1> Heading</h2>
-<p>Loreum epsun</p>
-<p><%= link_to "View details" , "#", class: "btn btn-secondary" %></p>
-</div>
-<div class="col-md-4">
-<h1> Heading</h2>
-<p>Loreum epsun</p>
-<p><%= link_to "View details" , "#", class: "btn btn-secondary" %></p>
-</div>
-</div>
-</div>
+<% else %>
+    <div class="jumbotran jumbotran-home">
+        <div class="container">
+          
+            <h1>Welcome to my website!</h1>
+            <p></p>
+            <%= link_to "Learn more >> " ,"#", class:" btn btn-primary btn-lg" %>
+    
+        </div>
+    </div>
+    <div class="container">
+    <div class="row">
+    <div class="col-md-4">
+    <h1> Heading</h2>
+    <p>Loreum epsun</p>
+    <p><%= link_to "View details" , "#", class: "btn btn-secondary" %></p>
+    </div>
+    <div class="col-md-4">
+    <h1> Heading</h2>
+    <p>Loreum epsun</p>
+    <p><%= link_to "View details" , "#", class: "btn btn-secondary" %></p>
+    </div>
+    <div class="col-md-4">
+    <h1> Heading</h2>
+    <p>Loreum epsun</p>
+    <p><%= link_to "View details" , "#", class: "btn btn-secondary" %></p>
+    </div>
+    </div>
+    </div>
+<% end %>
