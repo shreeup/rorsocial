@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   devise_for :users
   as :user do
-    get "signin" => 'devise/sessions#new'
-    delete "signout" => 'devise/sessions#destroy'
-    get "signup" => 'devise/registrations#new'
+    get "/users/sign_in", :to => 'devise/sessions#new'
+    delete "/users/sign_out", :to => 'devise/sessions#destroy'
+    get "/users/sign_up", :to => 'devise/registrations#new'
   end
   root 'pages#home'
   get 'about' => 'pages#about'
