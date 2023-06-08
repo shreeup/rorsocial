@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  ActiveAdmin.routes(self)
+  resources :tweets
   devise_for :users
   as :user do
     get "/users/sign_in", :to => 'devise/sessions#new'
