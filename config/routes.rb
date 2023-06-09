@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  #match 'users/:username', to: 'users#show', :via => [:get], :constraints =>{username: /[\w.]+?/}
+  get 'users/:username', to: 'users#show', as: 'user', username: /[^\/]+/
+  resources :items
   resources :tweets
   devise_for :users
   as :user do
