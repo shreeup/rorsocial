@@ -51,7 +51,7 @@ gem 'bootstrap', '~> 5.3.0.alpha3'
 gem 'devise', '~> 4.9', '>= 4.9.2'
 # gem 'jquery-ui-rails', '~> 5.0.0'
 gem 'jquery-rails'
-
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 
  
 group :development, :test do

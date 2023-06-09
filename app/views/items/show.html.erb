@@ -1,4 +1,4 @@
-<div clas="container">
+<div class="container">
 <p style="color: green"><%= notice %></p>
 
 <p><strong>User:<strong>
@@ -15,9 +15,9 @@
 </p>
 <div>
 <% if @item.user==current_user %>
-  <%= link_to "Edit this item", edit_item_path(@item) %> 
-  <%= button_to "Destroy this item", @item, method: :delete %>
-  <%= link_to "Back to items", items_path %>
+  <%= link_to "Edit ", edit_item_path(@item) %> |
+  <%= link_to "Destroy ", @item, method: :delete %> |
+  <%= link_to "Back ", items_path %>
   <%end %>
 </div>
 </div>

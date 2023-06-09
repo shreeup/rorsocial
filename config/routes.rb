@@ -1,14 +1,23 @@
 Rails.application.routes.draw do
   #match 'users/:username', to: 'users#show', :via => [:get], :constraints =>{username: /[\w.]+?/}
-  get 'users/:username', to: 'users#show', as: 'user', username: /[^\/]+/
-  resources :items
-  resources :tweets
   devise_for :users
   as :user do
     get "/users/sign_in", :to => 'devise/sessions#new'
     delete "/users/sign_out", :to => 'devise/sessions#destroy'
     get "/users/sign_up", :to => 'devise/registrations#new'
   end
+  get 'users/:username', to: 'users#show', as: 'user', username: /[^\/]+/
+  get 'feed', to:'feed#show'
+  
+  resources :users, only: :show, param: :username do
+    member do
+      post 'follow', to: 'follows#create', username: /[^\/]+/
+      delete 'unfollow', to: 'follows#destroy', username: /[^\/]+/
+    end
+  end
+  resources :items
+  resources :tweets
+  
   root 'pages#home'
   get 'about' => 'pages#about'
   get 'contactus' => 'pages#contactus'
