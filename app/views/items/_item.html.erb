@@ -1,5 +1,10 @@
 <div id="<%= dom_id item %>">
   <p>
+    <strong>Votes:</strong>
+    <%= item.votes_for.up.size %>
+  </p>
+
+  <p>
     <strong>User:</strong>
     <%= item.user_id %>
   </p>

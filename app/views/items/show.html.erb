@@ -1,6 +1,5 @@
 <div class="container">
 <p style="color: green"><%= notice %></p>
-
 <p><strong>User:<strong>
 <%= @item.user.email %>
 </p>
@@ -12,6 +11,9 @@
 </p>
 <p><strong>Text:<strong>
 <%= @item.text %>
+</p>
+<p><strong>Votes:<strong>
+<%= @item.votes_for.up.size %>
 </p>
 <div>
 <% if @item.user==current_user %>

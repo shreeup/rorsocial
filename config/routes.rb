@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   #match 'users/:username', to: 'users#show', :via => [:get], :constraints =>{username: /[\w.]+?/}
+  
   devise_for :users
+  
   as :user do
     get "/users/sign_in", :to => 'devise/sessions#new'
     delete "/users/sign_out", :to => 'devise/sessions#destroy'
@@ -15,10 +17,18 @@ Rails.application.routes.draw do
       delete 'unfollow', to: 'follows#destroy', username: /[^\/]+/
     end
   end
-  resources :items
-  resources :tweets
+
   
-  root 'pages#home'
+  resources :items do
+    member do
+      post 'vote', to: 'votes#create'
+      delete 'unvote', to: 'votes#destroy'
+    end
+  end
+  
+  
+  root 'tweets#index'
+  resources :tweets
   get 'about' => 'pages#about'
   get 'contactus' => 'pages#contactus'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

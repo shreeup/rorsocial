@@ -7,8 +7,16 @@
   <% @items.each do |item| %>
     <%= render item %>
     <p>
-      <%= link_to "Show this item", item %>
-    </p>
+      <%= link_to "Show", item %>
+      <% if user_signed_in? %>
+      |
+        <% if current_user.voted_for? item %>
+          <%= link_to "Unvote", unvote_item_path(item), method: :delete %>
+        <% else %>
+          <%= link_to "Vote", vote_item_path(item) , method: :post%>
+        <% end %>
+      <% end %>
+  </p>
   <% end %>
 </div>
 <% if user_signed_in? %>
