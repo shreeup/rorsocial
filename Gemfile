@@ -53,10 +53,21 @@ gem 'devise', '~> 4.9', '>= 4.9.2'
 gem 'jquery-rails'
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 gem 'acts_as_votable'
+gem 'rspec-rails'
+gem 'factory_bot_rails'
+gem 'faker'
+gem 'rails-controller-testing'
+gem 'rexml'
+
+gem "debug", platforms: %i[ mri mingw x64_mingw ]
+gem "sqlite3", "~> 1.4"
+gem "byebug", "~> 11.1"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "sqlite3", "~> 1.4"
+  gem "byebug", "~> 11.1"
 end
 
 group :development do
